@@ -7,7 +7,7 @@ public class Pestle : MonoBehaviour
     [SerializeField]
     List<GameObject> pestleItem = new List<GameObject>();
     [SerializeField]
-    GameObject m;
+    GameObject m = null;
     int checkTime = 0;
 
 

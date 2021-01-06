@@ -1,24 +1,17 @@
+using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Menu : MonoBehaviour
+public class Menu
 {
-    Dictionary<List<int>,int> menu = new Dictionary<List<int>, int>()
-                                        {
-                                            {new List<int>(){1,2,3},1}
-                                        };
+    // นำ ingredientID มาใช้เพื่อหา ID ของอาหารที่กำลังจะทำ
+    // ID ส่วนประกรอบ : 1 = กุ้ง , 2 = กระเพราะ
+    // {ส่วนประกรอบ , อาหารที่จะออกมา}
+    public Dictionary<string,int> CookingMenu = new Dictionary<string, int>() 
+    {
+        {"1,2",3} //Test
+    };
 
-
-    List<int> input = new List<int>(){1,2,3};
-
-  
-
-
-
-    private void Update() {
-        Debug.Log(input[0]);
-        Debug.Log(input[1]);
-        Debug.Log(input[2]);
-    }
 }

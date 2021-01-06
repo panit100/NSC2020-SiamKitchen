@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class food : MonoBehaviour
 {
-    enum Ripeness {Raw,Done,Burnt}; //ระดับความสุก
+    public enum Ripeness {Raw,Done,Burnt}; //ระดับความสุก
     
-    [SerializeField]
-    Ripeness currentStage = Ripeness.Raw; //ระดับความสกปัจจุบัน
-    [SerializeField]
-    bool isStir = false;
+    public Ripeness currentStage = Ripeness.Raw; //ระดับความสกปัจจุบัน
+    
+    //public bool isStir = false;
 
     [Header("Timer")]
     [SerializeField]
@@ -19,11 +18,14 @@ public class food : MonoBehaviour
     [SerializeField]
     float BurntTime = 0; //ตั้งเวลาไหม้
 
+    public int ID;
+
     private void FixedUpdate() {
         //checkStage();
 
         if(currentStage == Ripeness.Done){
             print("Done");
+            //isStir = true;
             DoneStage();
         }else if(currentStage == Ripeness.Burnt){
             print("Burnt");
