@@ -10,11 +10,13 @@ public class Fired : MonoBehaviour
     public string ingredientID; // ID ของส่วนประกอบทั้งหมด
 
     [SerializeField]
-    MenuManager menuManager = null;
-    Menu menuCalculation = new Menu();
+    MenuPrefabManager menuPrefabManager = null;
+    MenuManager menuCalculation = new MenuManager();
+    [SerializeField]
+    Transform instantiatePosition = null;
 
     private void FixedUpdate() {
-        spawnCookingFood();
+        
     }
     
     //อัพเดต ส่วนประกอบที่อยู่ในภาชนะ
@@ -34,7 +36,10 @@ public class Fired : MonoBehaviour
             other.GetComponent<food>().CookingTimeCalculate();
         
             other.GetComponent<food>().checkStage();
+            spawnCookingFood();
         }
+
+        
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -59,21 +64,17 @@ public class Fired : MonoBehaviour
             }
         }
 
-        Instantiate(menuManager.foodPrefab[menuCalculation.CookingMenu[ingredientID]]);
+        Instantiate(menuPrefabManager.foodPrefab[menuCalculation.CookingMenu[ingredientID]],instantiatePosition.position,instantiatePosition.rotation);
         
         foreach(GameObject n in ingredient){
             Destroy(n);
         }
-        ingredientID = null;
+        ingredient = new List<GameObject>(0);
 
-        foreach(GameObject n in ingredient){
-            if(ingredient != null && n.GetComponent<food>().currentStage == food.Ripeness.Raw){
-                
-            }
-        }
+        
         // print("IngredientID" + ingredientID);
         // print("Cookingmenu" + menuCalculation.CookingMenu[ingredientID]);
-        // print("MenuPrefab" + menuManager.foodPrefab[menuCalculation.CookingMenu[ingredientID]]);
+        // print("MenuPrefab" + menuPrefabManager.foodPrefab[menuCalculation.CookingMenu[ingredientID]]);
     }
 
     

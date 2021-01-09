@@ -1,16 +1,16 @@
-﻿using System.Collections;
+using System;
+using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuManager : MonoBehaviour
+public class MenuManager
 {
-    //รวม ScriptableObject MenuPrefab ให้กลายเป็น Dictionary
-    public MenuPrefab menuPrefab;
-    public Dictionary<int,GameObject> foodPrefab = new Dictionary<int, GameObject>();
-    
-    private void Awake() {
-        for(int i = 0; i < menuPrefab.ID.Count; i++){
-            foodPrefab.Add(menuPrefab.ID[i],menuPrefab.prefab[i]);
-        }
-    }
+    // นำ ingredientID มาใช้เพื่อหา ID ของอาหารที่กำลังจะทำ
+    // ID ส่วนประกรอบ : 1 = กุ้ง , 2 = กระเพราะ
+    // {ส่วนประกรอบ , อาหารที่จะออกมา}
+    public Dictionary<string,int> CookingMenu = new Dictionary<string, int>() 
+    {
+        {"1,2",3} //Test
+    };
 }
