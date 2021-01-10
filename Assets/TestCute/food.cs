@@ -5,7 +5,7 @@ using UnityEngine;
 public class food : MonoBehaviour
 {
     public enum Ripeness {Raw,Done,Burnt}; //ระดับความสุก
-    
+    ScoreManager score = new ScoreManager();
     
     //public bool isStir = false;
     
@@ -64,6 +64,7 @@ public class food : MonoBehaviour
     void BurntStage(){
         Renderer Food = gameObject.GetComponent<Renderer>();
         Food.material.SetColor("_Color",Color.red);
+        
     }
     
 }

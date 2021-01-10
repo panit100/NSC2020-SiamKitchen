@@ -36,14 +36,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\TestCute\Boiled\Boiled.cs" />
      <Compile Include="Assets\TestCute\Cutting\Slicer.cs" />
      <Compile Include="Assets\TestCute\Egg.cs" />
-     <Compile Include="Assets\TestCute\FireCollider.cs" />
-     <Compile Include="Assets\TestCute\Fired.cs" />
+     <Compile Include="Assets\TestCute\Fired\Fired.cs" />
      <Compile Include="Assets\TestCute\MenuManager.cs" />
      <Compile Include="Assets\TestCute\MenuPrefab.cs" />
      <Compile Include="Assets\TestCute\MenuPrefabManager.cs" />
-     <Compile Include="Assets\TestCute\Pestle.cs" />
+     <Compile Include="Assets\TestCute\Pound\Pestle.cs" />
+     <Compile Include="Assets\TestCute\Score\ScoreManager.cs" />
+     <Compile Include="Assets\TestCute\Stove\FireCollider.cs" />
+     <Compile Include="Assets\TestCute\Stove\StoveSwitch.cs" />
      <Compile Include="Assets\TestCute\food.cs" />
      <Compile Include="Assets\code com check\itemserial.cs" />
      <Compile Include="Assets\code move&amp;snap\platefoodsnap.cs" />
