@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pan
-  - Egg1
-  - Egg2
-  - Fire
-  - Food
-  - Pestle
+  - ingredient
+  - hand
+  - liquid
+  - pickable
+  - spatula
+  - pickablesingle
+  - rice
   layers:
   - Default
   - TransparentFX
@@ -19,10 +20,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - pickable
+  - pourable
+  - food
+  - rice
   - 
   - 
   - 
