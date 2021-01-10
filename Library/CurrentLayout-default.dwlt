@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 276, y: 192}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 17
+  controlID: 22
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 781, y: 492}
   m_MaxSize: {x: 16006, y: 14042}
   vertical: 0
-  controlID: 16
+  controlID: 76
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_MinSize: {x: 505, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 57
+  controlID: 77
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_MinSize: {x: 505, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 58
+  controlID: 78
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -469,9 +469,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 12370000
-      m_LastClickedID: 0
-      m_ExpandedIDs: bef5ffffdaf9ffff66fbffff
+      m_SelectedIDs: 7eecffff
+      m_LastClickedID: -4994
+      m_ExpandedIDs: 0eeefffffef9ffff66fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -487,7 +487,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -531,9 +531,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.79487175, y: -0.29625416, z: 4.035488}
+    m_Target: {x: -7.2480307, y: -0.14254141, z: 7.2156725}
     speed: 2
-    m_Value: {x: 0.79487175, y: -0.29625416, z: 4.035488}
+    m_Value: {x: -7.2480307, y: -0.14254141, z: 7.2156725}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -579,13 +579,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.31500992, y: -0.03923888, z: 0.012832607, w: 0.9483206}
+    m_Target: {x: 0.10245415, y: 0.8420303, z: -0.17275602, w: 0.5008981}
     speed: 2
-    m_Value: {x: 0.31497094, y: -0.039234027, z: 0.012831019, w: 0.9482033}
+    m_Value: {x: 0.10168999, y: 0.84218097, z: -0.17147072, w: 0.50098723}
   m_Size:
-    m_Target: 7.7937284
+    m_Target: 2.6795542
     speed: 2
-    m_Value: 7.7937284
+    m_Value: 2.9795542
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -649,20 +649,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/TestCute/Cutting
   m_ViewMode: 1
   m_StartGridSize: 53
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/TestCute/Cutting
   m_LastFoldersGridSize: 53
   m_LastProjectPath: C:\Users\game_\Desktop\NSC2020-SiamKitchen
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 60}
-    m_SelectedIDs: fa360000
-    m_LastClickedID: 14074
-    m_ExpandedIDs: 00000000d4360000f6360000fc3600000037000000ca9a3b
+    scrollPos: {x: 0, y: 12}
+    m_SelectedIDs: 0e370000
+    m_LastClickedID: 14094
+    m_ExpandedIDs: 00000000d4360000fc36000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -783,7 +783,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 446
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52

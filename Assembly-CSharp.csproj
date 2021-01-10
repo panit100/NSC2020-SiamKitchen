@@ -36,9 +36,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\TestCute\Cutting\Knife.cs" />
-     <Compile Include="Assets\TestCute\Cutting\SliceMetadata.cs" />
-     <Compile Include="Assets\TestCute\Cutting\Sliceable.cs" />
      <Compile Include="Assets\TestCute\Cutting\Slicer.cs" />
      <Compile Include="Assets\TestCute\Egg.cs" />
      <Compile Include="Assets\TestCute\FireCollider.cs" />

@@ -6,11 +6,13 @@ public class food : MonoBehaviour
 {
     public enum Ripeness {Raw,Done,Burnt}; //ระดับความสุก
     
-    public Ripeness currentStage = Ripeness.Raw; //ระดับความสกปัจจุบัน
     
     //public bool isStir = false;
+    
 
-    [Header("Timer")]
+    [Header("Cooking Stage")]
+    public Ripeness currentStage = Ripeness.Raw; //ระดับความสกปัจจุบัน
+
     [SerializeField]
     float CookingTime; //เวลาเริ่มทำอาหาร
     [SerializeField]
@@ -18,6 +20,11 @@ public class food : MonoBehaviour
     [SerializeField]
     float BurntTime = 0; //ตั้งเวลาไหม้
 
+    [Header("Slice Setting")]
+    public bool isSlice = false;
+    public GameObject SliceObject = null;
+
+    [Header("Food ID")]
     public int ID;
 
     private void FixedUpdate() {
