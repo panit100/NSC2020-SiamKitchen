@@ -16,7 +16,7 @@ public class pouring : MonoBehaviour
         RaycastHit hitInfo;     //
         if(Physics.Raycast(bottleRay, out hitInfo, 250, mask, QueryTriggerInteraction.Ignore))  //if(the ray name , the raycast hit object , ray range , what mask the ray will interact , not hit trigger)
         {
-            if((bottleCap.transform.position.y * 1.01f < bottleMid.transform.position.y) && Input.GetKeyDown(KeyCode.Mouse1) && singlegrap.whatHoldNow == ("bottle"))   
+            if((bottleCap.transform.position.y * 1.01f < bottleMid.transform.position.y) && Input.GetKeyDown(KeyCode.Mouse1) )//&& singlegrap.whatHoldNow == ("bottle"))   
             //if the bottle's cap is lower than middle of bottle , press right mouse , player is holding bottle item
             {
                 Debug.DrawLine(bottleRay.origin, hitInfo.point, Color.green);   //display the green line of ray cast if the conditions are met

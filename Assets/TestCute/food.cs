@@ -26,6 +26,8 @@ public class food : MonoBehaviour
 
     [Header("Food ID")]
     public int ID;
+    [SerializeField]
+    bool canCook = false;
 
     private void FixedUpdate() {
         //checkStage();
@@ -51,7 +53,9 @@ public class food : MonoBehaviour
 
     //ตั้งเวลาที่เริ่มทำอาหาร
     public void CookingTimeCalculate(){
-        CookingTime += Time.deltaTime * 1f;
+        if(canCook){
+            CookingTime += Time.deltaTime * 1f;
+        }
     }
 
     //เปลี่ยนสีอาหารเมื่อสุก

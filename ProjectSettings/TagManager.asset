@@ -11,6 +11,12 @@ TagManager:
   - spatula
   - pickablesingle
   - rice
+  - Food
+  - Pan
+  - Fire
+  - Egg2
+  - Egg1
+  - Pound
   layers:
   - Default
   - TransparentFX

@@ -5,36 +5,64 @@ using UnityEngine;
 public class Pestle : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> pestleItem = new List<GameObject>();
+    int currentPoundTime = 0; //จำนวนครั้งที่ตำปัจจุบัน
+    public List<GameObject> ingredient = new List<GameObject>(); // GameObject ส่วนประกอบต่างๆในภาชนะ
+    MenuManager menuCalculation = new MenuManager();
+    
+    public string ingredientID; // ID ของส่วนประกอบทั้งหมด
+
     [SerializeField]
-    GameObject m = null;
-    int checkTime = 0;
+    MenuPrefabManager menuPrefabManager = null;
+    [SerializeField]
+    Transform instantiatePosition = null; //ตำแหน่งที่จะให้ของเกิด
 
-
-    void checkPound(){
-        if(checkTime >= 5){
-            foreach(GameObject n in pestleItem){
-                Destroy(n);
-            }
-            
-            Instantiate(m,transform.position,transform.rotation);
-            checkTime = 0;
-        }
-    }
     private void OnTriggerEnter(Collider other) {
         if(other.GetComponent<food>() != null){
-            pestleItem.Add(other.gameObject);
+            ingredient.Add(other.gameObject);
+            UpdateIngredientID();
         }
 
-        if(other.tag == "Pestle" && pestleItem != null){
-            checkTime++;
+        if(other.tag == "Pound" && ingredient != null){
+            currentPoundTime++;
             checkPound();
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if(other.GetComponent<food>() != null){
-            pestleItem.Remove(other.gameObject);
+            ingredient.Remove(other.gameObject);
         }
+    }
+
+    //เช็คการตำ
+    void checkPound(){
+        if(currentPoundTime >= 10){
+            spawnCookingFood();
+        }
+    }
+
+    //อัพเดต ส่วนประกอบที่อยู่ในภาชนะ
+    void UpdateIngredientID(){
+        List<int> listIngredient = new List<int>();
+        foreach(GameObject n in ingredient){
+            listIngredient.Add(n.GetComponent<food>().ID);
+        }
+        listIngredient.Sort();
+        ingredientID = string.Join(",",listIngredient);
+
+        //Debug.Log("Ingredient ID " + ingredientID);
+    }
+
+    //Method ไว้สำหรับการ spawn อาหาร 
+    void spawnCookingFood(){
+        
+
+        Instantiate(menuPrefabManager.foodPrefab[menuCalculation.PoundMenu[ingredientID]],instantiatePosition.position,instantiatePosition.rotation);
+        
+        foreach(GameObject n in ingredient){
+            Destroy(n);
+        }
+        ingredient = new List<GameObject>(0);
+        currentPoundTime = 0;
     }
 }

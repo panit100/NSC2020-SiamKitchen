@@ -10,9 +10,19 @@ public class pancheck : MonoBehaviour
     [SerializeField] private bool isDrop;                   //is the liquid droped on the object?
     [SerializeField] private float dropletHeight;           //height of liquid
     [SerializeField] private float dropletSpeed;            //speed of lipuid increasing height
+
+    [Header("Test")]
+    [SerializeField] Transform liquidPlane;
+    [SerializeField] Transform nextliquidHight;
+    [SerializeField] float speed = 0.5f;
+    float startTime;
+    float journeyLength;
+    Vector3 nextHight;
+
     public void Start()
     {
         dropletHeight = dropletOnPanChecker.position.y;     //
+        nextHight = nextliquidHight.position;
     }
 
     public void OnTriggerEnter(Collider other)  //use trigger
@@ -23,6 +33,8 @@ public class pancheck : MonoBehaviour
             dropcount++;    //increase drop count by one for each bottle's click
             isDrop = true;  //the liquid is drop on the object
             dropletHeight = dropletHeight + 0.2f;   //the current height
+            startTime = Time.time;
+            nextHight = nextliquidHight.position;
         }
     }
 
@@ -30,14 +42,32 @@ public class pancheck : MonoBehaviour
     {
         if(isDrop == true)
         {
-            dropletSpeed = 2f;
-            dropletOnPan.Translate (Vector3.up * dropletSpeed * Time.deltaTime);
+        //     dropletOnPan.position = Vector3.Lerp(dropletOnPan.position,dropletOnPan.position * dropletSpeed * Time.deltaTime,1);
+        //     dropletSpeed = 2f;
+        //     dropletOnPan.Translate (Vector3.up * dropletSpeed * Time.deltaTime);
+            Lerpliquid();
+            print("isDrop Update");
+        //  isDrop = false;
         }
 
-        if(dropletOnPanChecker.position.y > dropletHeight)
+        // if(dropletOnPanChecker.position.y >= dropletHeight)
+        // {
+        //     isDrop = false;
+        //     dropletSpeed = 0f;
+        // }
+
+        if(dropletOnPan.position.y >= nextHight.y)
         {
             isDrop = false;
-            dropletSpeed = 0f;
+            print("dropletOnPan Update");
         }
+    }
+
+    void Lerpliquid(){
+        
+        float disCovered = (Time.time - startTime) * speed;
+        float fractionOfJourney = disCovered / journeyLength;
+        dropletOnPan.position = Vector3.Lerp(liquidPlane.position,nextHight,fractionOfJourney);
+        print("Lerpliquid");
     }
 }
