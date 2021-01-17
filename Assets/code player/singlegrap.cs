@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class singlegrap : MonoBehaviour
 {
@@ -13,14 +14,31 @@ public class singlegrap : MonoBehaviour
     [SerializeField] bool isPick;
     public static bool updateisPick;
     public static string whatHoldNow;
+
     
+    public InputDeviceCharacteristics controllerCharacteristics;
+    InputDevice targetDevice;
+
     public void Start()
     {
-        isPick = false;     //set picking boolean to false: at start, player not holding anything
+        isPick = false;  //set picking boolean to false: at start, player not holding anything
+        
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics,devices);
+
+        if(devices.Count > 0){
+            targetDevice = devices[0];
+        }
+        
     }
 
     public void Update()
     {
+        //GrabwithKeyboard();
+        GrabwithController();
+    }
+
+    void GrabwithKeyboard(){
         pickRay = new Ray (transform.position, transform.forward);                                  //setting up raycast (position of ray , direction of ray)
         if(Physics.Raycast(pickRay,out hitInfo, rayRange, mask, QueryTriggerInteraction.Ignore))    //(rayname , hit what , distance , what it can interact(layer) , aim to hit collider(ignore trigger))
         {
@@ -60,4 +78,50 @@ public class singlegrap : MonoBehaviour
         updateisPick = isPick;
         whatHoldNow = checkhold.whatHold;
     }
+
+    void GrabwithController(){
+        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool triggerValue);
+
+        pickRay = new Ray (transform.position, transform.forward);                                  //setting up raycast (position of ray , direction of ray)
+        if(Physics.Raycast(pickRay,out hitInfo, rayRange, mask, QueryTriggerInteraction.Ignore))    //(rayname , hit what , distance , what it can interact(layer) , aim to hit collider(ignore trigger))
+        {
+            if(triggerValue && updateisPick == false)                           //right mouse is pressed and not already picking item
+            {
+                hitInfo.collider.gameObject.transform.parent = grapHolder;                          //item that was hit by ray become a child of grapholder(hand)
+                grapHolder.GetChild(0).GetComponent<Rigidbody>().useGravity = false;                //disable gravity, inside rigidbody component of picked up item
+                grapHolder.GetChild(0).transform.position = grapPosition.position;                  //transform position to holding position
+                grapHolder.GetChild(0).GetComponent<Collider>().attachedRigidbody.constraints =     //freezing rotation and position of all axises
+                RigidbodyConstraints.FreezeAll;
+            }
+            Debug.DrawLine(pickRay.origin, hitInfo.point,Color.red);
+        }
+
+        else
+        {
+            Debug.DrawLine(pickRay.origin, pickRay.origin + pickRay.direction * rayRange, Color.green);
+        }
+
+        if(triggerValue && updateisPick == true)
+        {
+            grapHolder.GetChild(0).transform.parent = null;
+            grapHolder.GetChild(0).GetComponent<Rigidbody>().useGravity = true;                   //turn on item's gravity
+            grapHolder.GetChild(0).GetComponent<Collider>().attachedRigidbody.constraints = RigidbodyConstraints.None;     //unfreeze holding item's rotation and position
+            
+        }
+        
+        if(grapHolder.childCount == 0)
+        {
+            isPick = false;
+        }
+
+        if(grapHolder.childCount != 0)
+        {
+            isPick = true;
+        }
+        
+        updateisPick = isPick;
+        whatHoldNow = checkhold.whatHold;
+    }
+
+    
 }

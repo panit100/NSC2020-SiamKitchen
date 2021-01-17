@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class pancheck : MonoBehaviour
 {
-    [SerializeField] public int dropcount;                  //count the droplet
-    [SerializeField] public Transform dropletOnPan;         //the object act as particle of liquid (move up when droplet hit trigger)
-    [SerializeField] public Transform dropletOnPanChecker;  //the position of trigger
+    [SerializeField] int dropcount;                  //count the droplet
+    [SerializeField] Transform dropletOnPan;         //the object act as particle of liquid (move up when droplet hit trigger)
+    [SerializeField] Transform dropletOnPanChecker;  //the position of trigger
     [SerializeField] private bool isDrop;                   //is the liquid droped on the object?
     [SerializeField] private float dropletHeight;           //height of liquid
     [SerializeField] private float dropletSpeed;            //speed of lipuid increasing height
@@ -42,11 +42,10 @@ public class pancheck : MonoBehaviour
     {
         if(isDrop == true)
         {
+            Lerpliquid();
         //     dropletOnPan.position = Vector3.Lerp(dropletOnPan.position,dropletOnPan.position * dropletSpeed * Time.deltaTime,1);
         //     dropletSpeed = 2f;
         //     dropletOnPan.Translate (Vector3.up * dropletSpeed * Time.deltaTime);
-            Lerpliquid();
-            print("isDrop Update");
         //  isDrop = false;
         }
 
@@ -59,7 +58,6 @@ public class pancheck : MonoBehaviour
         if(dropletOnPan.position.y >= nextHight.y)
         {
             isDrop = false;
-            print("dropletOnPan Update");
         }
     }
 
