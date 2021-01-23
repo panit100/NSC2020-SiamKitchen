@@ -10,8 +10,8 @@ public class previouspage : MonoBehaviour
     {
         pagenumber = 1;
     }
-    public void OnTriggerStay(Collider other) {
-        if(other.tag == ("hand") && Input.GetKeyDown(KeyCode.Mouse0) && singlegrap.whatHoldNow == null)
+    public void OnTriggerEnter(Collider other) {
+        if(other.tag == ("hand"))
         {
             Debug.Log ("previous page");        //console dialog
             pagenumber = pagenumber - 1;        //turn back page, decrease pagenumber

@@ -10,4 +10,11 @@ public class StoveSwitch : MonoBehaviour
     void TurnONandOFF(){
         Stove.TurnONOFF = !Stove.TurnONOFF;
     }
+
+    public void OnTriggerEnter(Collider other) {
+        if(other.tag == ("hand"))
+        {
+            TurnONandOFF();
+        }
+    }
 }

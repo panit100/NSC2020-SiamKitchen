@@ -8,8 +8,8 @@ public class spawner : MonoBehaviour
     public GameObject[] ItemSpawnPrefab;    //add prefab item
     public GameObject[] ItemSpawnClone;     //same as prefab
 
-    public void OnTriggerStay(Collider other) {     //work with press left mouse within area and player not holding anything
-        if(other.tag == ("hand") && Input.GetKeyDown(KeyCode.Mouse0) && singlegrap.whatHoldNow == null)
+    public void OnTriggerEnter(Collider other) {     //work with press left mouse within area and player not holding anything
+        if(other.tag == ("hand"))
         {
             ItemSpawnClone[0] = Instantiate(ItemSpawnPrefab[0],ItemSpawnLocation[0].transform.position,Quaternion.Euler(0,0,0)) as GameObject;
             //clone prefab, at specific position and with specific a rotation, as a gameobject

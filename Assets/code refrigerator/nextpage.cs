@@ -11,8 +11,8 @@ public class nextpage : MonoBehaviour
         pagenumber = 1;
     }
 
-    public void OnTriggerStay(Collider other) {     //next page button method
-        if(other.tag == ("hand") && Input.GetKeyDown(KeyCode.Mouse0) && singlegrap.whatHoldNow == null)     //active within area then press E
+    public void OnTriggerEnter(Collider other) {     //next page button method
+        if(other.tag == ("hand"))     //active within area then press E
         {
             pagenumber = (pagenumber%3)+1;          //turn next page equation, if at the last page, back to page 1
             previouspage.pagenumber = pagenumber;   //sync current pagenumber with prevoiuspage script

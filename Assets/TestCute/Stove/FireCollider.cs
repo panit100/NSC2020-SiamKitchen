@@ -8,8 +8,8 @@ public class FireCollider : MonoBehaviour
 
 
     private void OnTriggerStay(Collider other) {
-        if(other.GetComponent<Fired>() != null && TurnONOFF){
-            other.GetComponent<Fired>().readyToCook = true;
+        if(other.GetComponent<Fired>() != null){
+            other.GetComponent<Fired>().readyToCook = TurnONOFF;
         }
     }
 

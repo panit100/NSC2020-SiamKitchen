@@ -17,6 +17,8 @@ TagManager:
   - Egg2
   - Egg1
   - Pound
+  - Lefthand
+  - RightHand
   layers:
   - Default
   - TransparentFX

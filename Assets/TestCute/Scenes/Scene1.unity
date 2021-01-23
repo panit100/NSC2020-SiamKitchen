@@ -1893,7 +1893,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.005
+    widthMultiplier: 0.02
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -3621,6 +3621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1267846416}
   - component: {fileID: 1267846417}
+  - component: {fileID: 1267846418}
   m_Layer: 0
   m_Name: FireTigger
   m_TagString: Fire
@@ -3655,6 +3656,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.7191293, z: 1}
   m_Center: {x: 0, y: 0.35956442, z: 0}
+--- !u!114 &1267846418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267846415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d771fb067f39b1a4999a095c365952b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TurnONOFF: 0
 --- !u!1 &1273362262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3877,7 +3891,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.005
+    widthMultiplier: 0.02
     widthCurve:
       serializedVersion: 2
       m_Curve:
