@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\TestCute\Boiled\Boiled.cs" />
      <Compile Include="Assets\TestCute\Cutting\Slicer.cs" />
      <Compile Include="Assets\TestCute\Egg.cs" />
